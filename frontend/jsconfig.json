@@ -1,0 +1,10 @@
+// frontend/jsconfig.json
+{
+    "compilerOptions": {
+      "baseUrl": ".", // Le dice a Next.js que la raíz para los alias es el directorio actual (frontend/)
+      "paths": {
+        "@/*": ["./*"] // Define que '@/*' se mapea a './*' relativo al baseUrl
+      }
+    },
+    "exclude": ["node_modules", ".next"] // Carpetas a ignorar
+  }
