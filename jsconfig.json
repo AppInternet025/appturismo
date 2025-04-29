@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "esnext"],
+    "allowJs": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
 }
