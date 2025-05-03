@@ -18,6 +18,6 @@ export const initialCities = [
         name: 'Quemchi',
         lat: -42.1422733,
         lng: -73.4991448,
-        comments: ['Hay puros brujos ppr acá'],
+        comments: ['Hay puros brujos por acá'],
       },
   ];
