@@ -1,5 +1,5 @@
 import { connectToDatabase } from "@/utils/mongodb";
-import User from "@/components/User";
+import User from "@/models/User";
 import bcrypt from "bcryptjs";
 
 // API route para Next.js con App Router (no usa req.method)
