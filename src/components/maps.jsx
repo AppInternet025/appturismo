@@ -47,19 +47,21 @@ const MapWithUserComments = () => {
             position={{ lat: selectedCity.lat, lng: selectedCity.lng }}
             onCloseClick={() => setSelectedCity(null)}
           >
-            <div>
+            <div style={{ backgroundColor: 'grey'}}>
               <h3>{selectedCity.name}</h3>
               <ul>
                 {selectedCity.comments.map((c, i) => (
                   <li key={i}>🗨️ {c}</li>
                 ))}
               </ul>
-              <input
+              <br />
+              <input 
                 type="text"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
                 placeholder="Escribe un comentario"
               />
+              
               <button onClick={handleCommentSubmit}>Enviar</button>
             </div>
           </InfoWindow>
