@@ -1,7 +1,7 @@
 // src/app/api/locations/route.js
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect'; // Asegúrate que la ruta sea correcta
-import Location from '@/lib/models/Location'; // Asegúrate que la ruta sea correcta
+import Location from '@/app/models/Location'; // Asegúrate que la ruta sea correcta
 
 // --- GET: Obtener todos los lugares ---
 export async function GET(request) {
