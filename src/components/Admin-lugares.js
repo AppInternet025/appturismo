@@ -51,24 +51,20 @@ export default function AdminLugaresClient() {
 
   // El JSX es muy similar al de pages/index.js anterior
   return (
-    <div> {/* Envuelve en un div o fragmento */}
+    <div>
       <div className="flex justify-between items-center mb-6 gap-4 flex-wrap">
         <h1 className="text-3xl font-bold">Administración de Lugares</h1>
         <Link href="/admin-add-lugar" className="btn btn-primary">
           Agregar Nuevo Lugar
         </Link>
       </div>
-
-      {/* Mostrar Mapa */}
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Mapa de Lugares</h2>
-        <div className="bg-white p-1 rounded shadow overflow-hidden"> {/* overflow-hidden ayuda */}
-          {/* Asegúrate que el contenedor o MapDisplay tengan tamaño */}
+        <div className="bg-white p-1 rounded shadow overflow-hidden">
+          
            <MapDisplay locations={locations} />
         </div>
       </div>
-
-      {/* Mostrar Tabla de Lugares */}
       <h2 className="text-2xl font-semibold mb-4">Listado de Lugares</h2>
       {loading && <p className="text-center my-4">Cargando lugares...</p>}
       {error && <p className="text-red-600 bg-red-100 p-3 rounded my-4 text-center">Error: {error}</p>}
@@ -78,10 +74,9 @@ export default function AdminLugaresClient() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                 {/* ... (igual que antes: th para Foto, Nombre, Desc, Lat, Lng, Acciones) ... */}
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Foto</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Descripción</th> {/* Ocultar en móvil */}
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">Descripción</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Latitud</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Longitud</th>
                 <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
@@ -90,15 +85,14 @@ export default function AdminLugaresClient() {
             <tbody className="bg-white divide-y divide-gray-200">
               {locations.length === 0 ? (
                 <tr>
-                  <td colSpan="6" className="px-6 py-10 whitespace-nowrap text-sm text-gray-500 text-center">
+                  <td colSpan="6" className="px-6 py-10 text-sm text-gray-500 text-center">
                     No hay lugares registrados.
                   </td>
                 </tr>
               ) : (
                 locations.map((location) => (
                   <tr key={location._id}>
-                    {/* ... (igual que antes: td para imagen, datos, botones editar/eliminar) ... */}
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4">
                        <Image
                         src={location.photoUrl || '/placeholder-image.png'}
                         alt={location.name || 'Lugar sin nombre'}
@@ -106,16 +100,16 @@ export default function AdminLugaresClient() {
                         height={50}
                         className="h-12 w-12 rounded object-cover"
                         onError={(e) => { e.target.onerror = null; e.target.src='/placeholder-image.png'; }}
-                        unoptimized={true} // Considera optimizar si son pocas imágenes o de un dominio conocido
+                        unoptimized={true}
                        />
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{location.name}</td>
-                     <td className="px-6 py-4 whitespace-normal text-sm text-gray-500 max-w-xs truncate hidden sm:table-cell" title={location.description}>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{location.name}</td>
+                     <td className="px-6 py-4 text-sm text-gray-500 max-w-xs truncate hidden sm:table-cell" title={location.description}>
                       {location.description}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{location.ubi_lat?.toFixed(6) ?? 'N/A'}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{location.ubi_lng?.toFixed(6) ?? 'N/A'}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                    <td className="px-6 py-4 text-sm text-gray-500">{location.ubi_lat?.toFixed(6) ?? 'N/A'}</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">{location.ubi_lng?.toFixed(6) ?? 'N/A'}</td>
+                    <td className="px-6 py-4 text-right text-sm font-medium space-x-2">
                       <Link href={`/edit/${location._id}`} className="text-indigo-600 hover:text-indigo-900">
                          Editar
                       </Link>

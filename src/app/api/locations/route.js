@@ -6,7 +6,7 @@ import Location from '@/models/Location'; // Asegúrate que la ruta sea correcta
 // --- GET: Obtener todos los lugares ---
 export async function GET(request) {
   try {
-    await dbConnect();
+    await connectToDatabase();
     const locations = await Location.find({}).sort({ createdAt: -1 }); // Ordenar por más reciente
     return NextResponse.json(locations, { status: 200 });
   } catch (error) {
@@ -27,7 +27,7 @@ export async function POST(request) {
   }
 
   try {
-    await dbConnect();
+    await connectToDatabase();
 
     // Validación básica extra (aunque Mongoose también valida)
     const { name, photoUrl, description, ubi_lat, ubi_lng } = requestBody;
