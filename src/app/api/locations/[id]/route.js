@@ -1,6 +1,6 @@
 // src/app/api/locations/[id]/route.js
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/dbConnect';
+import { connectToDatabase } from "@/utils/mongodb";
 import Location from '@/models/Location';
 import mongoose from 'mongoose'; // Para validar ObjectId
 
