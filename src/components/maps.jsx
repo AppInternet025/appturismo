@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-import { initialCities } from '../app/cities';
+import { initialCities } from '../app/mark-cities/cities';
 
 const containerStyle = {
   width: '100%',
