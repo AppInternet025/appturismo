@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/localLogin", {
+      const res = await fetch("/api/login-local", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export default function Login() {
         throw new Error(data.message || "Error en la autenticación"); // ✅ usar mensaje de backend
       }
 
-      router.push("/principal"); // Redirige tras login exitoso
+      router.push("/"); // Redirige tras login exitoso
     } catch (err) {
       setError(err.message);
     }
